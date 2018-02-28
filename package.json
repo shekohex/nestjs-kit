@@ -1,0 +1,10 @@
+{
+  "name": "nestjs-kit",
+  "version": "1.0.0-beta",
+  "description": "My Nestjs Starter Kit.",
+  "main": "index.js",
+  "repository": "https://github.com/shekohex/nestjs-kit.git",
+  "author": "Shady Khalifa <shekohex@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
