@@ -4,10 +4,9 @@
   "description": "My Nestjs Starter Kit.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node-dev --no-deps index.js",
     "start:prod": "node build/app.bundle.js",
-    "start:watch": "rimraf ./build/* && webpack --watch",
-    "start:dev": "node-dev --no-deps build/app.bundle.js",
+    "rimraf:build": "rimraf ./build/*",
     "bundle": "node ./scripts/bundle.js"
   },
   "repository": "https://github.com/shekohex/nestjs-kit.git",
@@ -16,8 +15,8 @@
   "private": false,
   "dependencies": {
     "@nest-middlewares/helmet": "^1.1.1",
-    "@nestjs/common": "^4.6.4",
-    "@nestjs/core": "^4.6.4",
+    "@nestjs/common": "^4.6.5",
+    "@nestjs/core": "^4.6.5",
     "@nestjs/typeorm": "^2.0.0",
     "chalk": "^2.3.1",
     "class-transformer": "^0.1.9",
@@ -25,6 +24,7 @@
     "dotenv": "^5.0.1",
     "jsonwebtoken": "^8.1.1",
     "mysql": "^2.15.0",
+    "pretty-error": "^2.1.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^5.5.6",
     "typeorm": "^0.1.14",

@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
-import { HelloWorld } from './app.controller';
+import { SharedModule } from '@shared/shared.module';
+import { HelloWorldModule } from '@app/hello/helloworld.module';
+
 @Module({
-  controllers: [HelloWorld],
+  imports: [SharedModule, HelloWorldModule],
 })
 export class AppModule {}

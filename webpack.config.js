@@ -17,7 +17,7 @@ module.exports = {
   target: 'node',
   context: __dirname, // to automatically find tsconfig.json
   devtool: 'inline-source-map',
-  mode: 'development',
+  mode: 'production',
   node: {
     __dirname: true,
     __filename: true,
@@ -61,8 +61,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', 'js'],
+    extensions: ['.ts'],
     plugins: [new TsconfigPathsPlugin()],
+  },
+  optimization: {
+    minimize: false,
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
@@ -75,7 +78,12 @@ module.exports = {
       test: /\.ts$/i,
     }),
     new WebpackShellPlugin({
-      onBuildEnd: ['npm run start:dev'],
+      onBuildStart: ['npm run rimraf:build'],
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
   ],
   stats: {
